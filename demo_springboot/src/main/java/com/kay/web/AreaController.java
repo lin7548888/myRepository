@@ -3,7 +3,7 @@ package com.kay.web;
 import com.kay.entity.TbArea;
 import com.kay.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,11 +27,15 @@ public class AreaController {
      * @return
      */
     @RequestMapping(value = "/listarea",method = RequestMethod.GET)
-    private Map<String, Object> listArea() {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        List<TbArea> areas = areaService.queryArea();
-        modelMap.put("areaList", areas);
-        return modelMap;
+//    private Map<String, Object> listArea() {
+    private List<TbArea> listArea() {
+//        Map<String, Object> modelMap = new HashMap<String, Object>();
+
+//        List<TbArea> areas = areaService.queryArea();
+//        modelMap.put("areaList", areas);
+//        return modelMap;
+        return areaService.queryArea();
+
     }
 
     /**
@@ -52,37 +56,37 @@ public class AreaController {
      * @param area
      * @return
      */
-    @RequestMapping(value = "/addarea",method = RequestMethod.POST)
-    private Map<String, Object> addArea(@RequestBody TbArea area) {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        boolean isSuccess = areaService.insert(area);
-        modelMap.put("success", isSuccess);
-        return modelMap;
-    }
+//    @RequestMapping(value = "/addarea",method = RequestMethod.POST)
+//    private Map<String, Object> addArea(@RequestBody TbArea area) {
+//        Map<String, Object> modelMap = new HashMap<String, Object>();
+//        boolean isSuccess = areaService.insert(area);
+//        modelMap.put("success", isSuccess);
+//        return modelMap;
+//    }
 
     /**
      * 修改
      * @param area
      * @return
      */
-    @RequestMapping(value = "/modifyarea",method = RequestMethod.POST)
-    private Map<String, Object> modifyArea(@RequestBody TbArea area) {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        boolean b = areaService.updateByPrimaryKeySelective(area);
-        modelMap.put("success", b);
-        return modelMap;
-    }
+//    @RequestMapping(value = "/modifyarea",method = RequestMethod.POST)
+//    private Map<String, Object> modifyArea(@RequestBody TbArea area) {
+//        Map<String, Object> modelMap = new HashMap<String, Object>();
+//        boolean b = areaService.updateByPrimaryKeySelective(area);
+//        modelMap.put("success", b);
+//        return modelMap;
+//    }
 
     /**
      * 删除area
      * @param areaId
      * @return
      */
-    @RequestMapping(value = "/removearea",method = RequestMethod.GET)
-    private Map<String, Object> removeArea(Integer areaId) {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        boolean isSuccess = areaService.deleteByPrimaryKey(areaId);
-        modelMap.put("success", isSuccess);
-        return modelMap;
-    }
+//    @RequestMapping(value = "/removearea",method = RequestMethod.GET)
+//    private Map<String, Object> removeArea(Integer areaId) {
+//        Map<String, Object> modelMap = new HashMap<String, Object>();
+//        boolean isSuccess = areaService.deleteByPrimaryKey(areaId);
+//        modelMap.put("success", isSuccess);
+//        return modelMap;
+//    }
 }
